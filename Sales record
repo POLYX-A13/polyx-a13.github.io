@@ -1,0 +1,47 @@
+#include <stdio.h>
+
+int main()
+{
+    float sales[5], total = 0, average;
+    float highest, lowest;
+    int i, highDay, lowDay;
+
+    // Accept sales for five days
+    for(i = 0; i < 5; i++)
+    {
+        printf("Enter sales for day %d: ", i + 1);
+        scanf("%f", &sales[i]);
+
+        total += sales[i];
+    }
+
+    // Initialize highest and lowest
+    highest = lowest = sales[0];
+    highDay = lowDay = 1;
+
+    // Find highest and lowest sales
+    for(i = 1; i < 5; i++)
+    {
+        if(sales[i] > highest)
+        {
+            highest = sales[i];
+            highDay = i + 1;
+        }
+
+        if(sales[i] < lowest)
+        {
+            lowest = sales[i];
+            lowDay = i + 1;
+        }
+    }
+
+    average = total / 5;
+
+    // Display results
+    printf("\nTotal Sales = %.2f", total);
+    printf("\nAverage Sales = %.2f", average);
+    printf("\nHighest Sales = %.2f on Day %d", highest, highDay);
+    printf("\nLowest Sales = %.2f on Day %d", lowest, lowDay);
+
+    return 0;
+}
